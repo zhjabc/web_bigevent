@@ -16,25 +16,23 @@ $(function () {
       layer.close(index);
     });
   });
-
-  //获取用户基本信息
-  function getUserInfo() {
-    $.ajax({
-      method: 'GET',
-      url: '/my/userinfo',
-      // headers: { Authorization: localStorage.getItem('token') || '' },
-      success: function (res) {
-        // console.log(res);
-        if (res.status !== 0) {
-          return layui.layer.msg('获取用户信息失败');
-        }
-        //调用renderAvatar() 渲染头像
-        renderAvatar(res.data);
-      },
-    });
-  }
 });
-
+//获取用户基本信息
+function getUserInfo() {
+  $.ajax({
+    method: 'GET',
+    url: '/my/userinfo',
+    // headers: { Authorization: localStorage.getItem('token') || '' },
+    success: function (res) {
+      // console.log(res);
+      if (res.status !== 0) {
+        return layui.layer.msg('获取用户信息失败');
+      }
+      //调用renderAvatar() 渲染头像
+      renderAvatar(res.data);
+    },
+  });
+}
 //渲染用户头像
 function renderAvatar(user) {
   //1.获取用户名称
@@ -48,7 +46,7 @@ function renderAvatar(user) {
     $('.text-avatar').html(name.charAt(0).toUpperCase()).show();
   } else {
     //3.2渲染图片头像
-    $('.layui-nav-img').attar('src', user.user_pic).show();
+    $('.layui-nav-img').attr('src', user.user_pic).show();
     $('.text-avatar').hide();
   }
 }
