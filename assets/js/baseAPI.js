@@ -4,6 +4,7 @@
 $.ajaxPrefilter(function (options) {
   // console.log(options);
   options.url = 'http://www.liulongbin.top:3007' + options.url;
+  // options.url = 'http://ajax.frontend.itheima.net' + options.url;
 
   //统一设置headers
   if (options.url.indexOf('/my/') != -1) {
