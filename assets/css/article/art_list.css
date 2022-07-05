@@ -8,3 +8,23 @@ body {
   padding: 15px;
   background-color: #f2f3f5;
 }
+a {
+  color: #0000ee;
+}
+
+.title {
+  height: 50px;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  /* left: 50%; */
+}
+.bief span {
+  margin-right: 60px;
+}
+.detail {
+  margin-left: 20px;
+}
+.content {
+  margin-top: 20px;
+}

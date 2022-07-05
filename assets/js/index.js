@@ -25,7 +25,7 @@ function getUserInfo() {
     // headers: { Authorization: localStorage.getItem('token') || '' },
     success: function (res) {
       // console.log(res);
-      if (res.status !== 0) {
+      if (res.code !== 0) {
         return layui.layer.msg('获取用户信息失败');
       }
       //调用renderAvatar() 渲染头像

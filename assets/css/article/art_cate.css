@@ -15,8 +15,7 @@ body {
   align-items: center;
 }
 
-#form-add, 
-#form-edit {
+.layui-form {
   padding-top: 20px;
   padding-right: 30px;
 }

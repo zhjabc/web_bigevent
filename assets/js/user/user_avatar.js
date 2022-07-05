@@ -46,12 +46,12 @@ $(function () {
       .toDataURL('image/png');
     // 2.发送ajax请求
     $.ajax({
-      method: 'POST',
+      method: 'PATCH',
       url: '/my/update/avatar',
       data: { avatar: dataURL },
       success: function (res) {
         console.log(res);
-        if (res.status !== 0) {
+        if (res.code !== 0) {
           layui.layer.msg(res.message);
         }
         window.parent.getUserInfo();

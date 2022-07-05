@@ -18,13 +18,13 @@ $(function () {
   $('.layui-form').on('submit', function (e) {
     e.preventDefault();
     $.ajax({
-      method: 'POST',
+      method: 'PATCH',
       url: '/my/updatepwd',
       data: $(this).serialize(),
       success: function (res) {
         console.log(res);
         layui.layer.msg(res.message);
-        if (res.status === 0) {
+        if (res.code === 0) {
           $('.layui-form')[0].reset(); //修改成功，重置表单
         }
       },

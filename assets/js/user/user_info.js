@@ -15,7 +15,7 @@ $(function () {
       url: '/my/userinfo',
       success: function (res) {
         // console.log(res);
-        if (res.status !== 0) {
+        if (res.code !== 0) {
           return layui.layer.msg('获取用户信息失败！');
         }
         // $('.layui-card-body [name=username]').val(res.data.username);
@@ -42,7 +42,7 @@ $(function () {
 
   function UpdateUserInfo() {
     $.ajax({
-      method: 'POST',
+      method: 'PUT',
       url: '/my/userinfo',
       data: $('.layui-form').serialize(),
       success: function (res) {

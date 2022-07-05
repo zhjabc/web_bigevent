@@ -29,13 +29,21 @@ $(function () {
     //阻止默认提交请求
     e.preventDefault();
     // console.log($('#form_reg[name=password]').val());
-    $.post('/api/reguser', { username: $('#form_reg [name=username]').val(), password: $('#form_reg     [name=password]').val() }, function (res) {
-      // console.log(res.message);
-      layui.layer.msg(res.message);
-      if (res.status === 0) {
-        $('#link_login').click();
+    $.post(
+      '/api/reg',
+      {
+        username: $('#form_reg [name=username]').val(),
+        password: $('#form_reg [name=password]').val(),
+        repassword: $('#form_reg [name=repassword]').val(),
+      },
+      function (res) {
+        // console.log(res.message);
+        layui.layer.msg(res.message);
+        if (res.code === 0) {
+          $('#link_login').click();
+        }
       }
-    });
+    );
   });
 
   //监听登录表单提交事件
@@ -46,7 +54,7 @@ $(function () {
       // console.log(res.message);
       layui.layer.msg(res.message);
       // console.log(res.token);
-      if (res.status === 0) {
+      if (res.code === 0) {
         // 登录成功将token存入localStorage中
         localStorage.setItem('token', res.token);
         // 跳转到后台主页
